@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="/css/list.css">
+
+
+<div class="container">
+    <div class="row">
+    <% for(let list of card) { %>
+        <div class="col col-12 col-md-6 col-lg-4 col-xl-3">
+
+         
+            <div class="card">
+                
+                <div class="card-image-container">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 1024 1024"
+                        stroke-width="0"
+                        fill="currentColor"
+                        stroke="currentColor"
+                        class="image-icon">
+                    </svg>
+                    <a href="/product/<%=list.productId%>">
+                    <img src="<%= list.image %>" class="card-img-top" alt="...">
+                </a>
+                </div>
+                    <p class="card-title"> 
+                        <%= list.name %>
+                    </p>
+            
+                    <p class="card-des"> 
+                        Price: <%= list.price %>$
+                        Amount:<%=list.amount%>
+                        <small id="total"> Total:<%=list.price * list.amount%>$ </small><br>
+                    </p>
+           
+                        <div class="submit">
+                            <form action="/oreder/form/<%=list.productId%>/<%= list.image %>/<%=list.name %>/<%=list.price %>/<%=list.amount%>/<%=list.id%>" method="get" >
+                            <button class="bookmarkBtn">
+                                <span class="IconContainer">
+                                  <svg viewBox="0 0 384 512" height="0.9em" class="icon">
+                                    <path
+                                      d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"
+                                    ></path>
+                                  </svg>
+                                </span>
+                                <p class="text">Save</p>
+                              </button>
+                            </form>
+                     
+                            <form action="/card/delete/<%=list.id%>" method="get" >
+                                <button class="button" type="submit">
+                                    <span style="color: #fff;">Delete</span>
+                                    <span class="button__icon"><svg class="svg" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M112,112l20,320c.95,18.49,14.4,32,32,32H348c17.67,0,30.87-13.51,32-32l20-320" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path><line style="stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px" x1="80" x2="432" y1="112" y2="112"></line><path d="M192,112V72h0a23.93,23.93,0,0,1,24-24h80a23.93,23.93,0,0,1,24,24h0v40" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path><line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" x1="256" x2="256" y1="176" y2="400"></line><line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" x1="184" x2="192" y1="176" y2="400"></line><line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" x1="328" x2="320" y1="176" y2="400"></line></svg></span>
+                                  </button>
+                            </form>
+                            
+                        </div>
+                  
+                    <p class="card-date">
+                        Date: <%=new Date(list.timeOrder).toLocaleString()%>
+                    </p>
+                  </div> 
+          
+        </div>
+    <% } %>
+    </div>
+</div>

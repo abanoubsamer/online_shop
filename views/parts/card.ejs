@@ -1,0 +1,42 @@
+
+<% if(produts.length === 0) { %>
+<div class="alert alert-danger">
+  <p>Not Found Products</p>
+</div>
+   <%}else{%>
+   <section>
+    <div class="container my-5">
+      <header class="mb-4">
+        <h3>New products</h3>
+      </header>
+      <div class="row">
+        <%for(let Product of produts){ %>
+          <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+            <div class="card w-100 my-2 shadow-2-strong">
+            <a href="/product/<%=Product.id%>" class="">
+              <div class="mask" style="height: 50px;">
+                <div class="d-flex justify-content-start align-items-start h-100 m-2">
+                  <h6><span class="badge bg-danger pt-1">New</span></h6>
+                </div>
+              </div>
+              <img src="<%=Product.image[0]%>" class="card-img-top rounded-2" style="aspect-ratio: 1 / 1"/>
+            </a>
+           
+              <h5 class="card-title">$<%=Product.price%></h5>
+              <p class="card-text mb-0"><%=Product.name%></p>
+              <p class="text-muted">
+                <%=Product.discrption.slice(0,50)%>
+              </p>
+              <div class="card-footer margin:auto">
+                <a href="#!" class="btn btn-primary shadow-0 me-1"onclick="addToFavorites({ id: '<%= Product.id %>', name: '<%= Product.name %>', price: '<%= Product.price %>', description: '<%=Product.discrption.slice(0,50)%>', image: '<%= Product.image[0]%>'})">Add to cart</a>
+                <a href="#!" class="btn btn-light border px-2 pt-2 icon-hover"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
+              </div>
+          </div>
+        </div>
+        <%}%>
+      </div>
+    </div>
+  </section>
+  <%}%> 
+  
+<script src="/js/card.js"></script>

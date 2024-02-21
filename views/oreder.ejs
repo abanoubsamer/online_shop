@@ -1,0 +1,211 @@
+<%- include("parts/header") %>
+<%- include("parts/nav") %>
+<link rel="stylesheet" href="/css/order.css">
+<link rel="stylesheet" href="/css/tracingorder.css">  
+
+
+
+
+
+<section class="bg-light py-5">
+  <div class="container">
+      <form action="/oreder/form" method="post">
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 mb-4">
+       
+   <%let sum=0%>
+             
+            <% for(let i = 0; i < orders.length; i++) { %>
+              <section class="gradient-custom-2">
+                <div class="container py-5 ">
+                  <div class="row d-flex justify-content-center align-items-center ">
+                    <div class="col-md-12 col-lg-12 col-xl-12">
+                      <div class="card card-stepper" style="border-radius: 16px;">
+                        <div class="card-header p-4">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                              <p class="text-muted mb-2"> Order ID <span class="fw-bold text-body"><%= orders[i].productsId %></span></p>
+                              <p class="text-muted mb-0"> Place On <span class="fw-bold text-body"><%= new Date(orders[i].orderDate).toLocaleString() %></span> </p>
+                            </div>
+                            <div>
+                              <h6 class="mb-0"> <a href="#">View Details</a> </h6>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body p-4">
+                          <div class="d-flex flex-row mb-4 pb-2">
+                            <div class="flex-fill">
+                              <h5 class="bold"><%= orders[i].productName %></h5>
+                              <p class="text-muted"> Qt: <%= orders[i].productAmount%> item</p>
+                                <span class="infouser"><h4>Information User</h4></span> 
+                                <h6>Name: <%= orders[i].name %></h6>
+                                <h6>Country: <%= orders[i].Country %></h6>
+                                <h6>City: <%= orders[i].City %></h6>
+                                <div class="Contact">
+                                    <h6>Phone: <%= orders[i].phone %></h6>
+                                    <h6>Email: <%= orders[i].email %></h6>
+                                </div>
+                              <span class="infoamount"><h4>Information Amount</h4></span> 
+                              <h6>Price: $<%= orders[i].productPrice %></h6>
+                              <h6>Amount: <%= orders[i].productAmount %></h6>
+                              <h6>Total Amount: <%= orders[i].productPrice * orders[i].productAmount %>$</h6>
+                              <p class="text-muted">Tracking Status on: <span class="text-body">11:30pm, Today</span></p>
+                            </div>
+                            <div>
+                              <img class="align-self-center img-fluid"
+                                src="<%= orders[i].image %>" width="250">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="button" class="d-grid" data-bs-toggle="modal" data-bs-target="#exampleModal<%= i %>">
+                        Tracing Order
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal<%= i %>" tabindex="-1" aria-labelledby="exampleModalLabel<%= i %>" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel<%= i %>">Tracing Form</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col col-12 col-md-12 col-lg-12 col-xl-12">
+                                                <div class="container px-1 px-md-4 py-5 mx-auto">
+                                                    <div class="card">
+                                                        <div class="row d-flex justify-content-between px-3 top">
+                                                            <div class="d-flex">
+                                                                <h5>ORDER ID <span class="text-primary font-weight-bold">#<%= orders[i].productsId %></span></h5>
+                                                            </div>
+                                                            <h3><%= orders[i].productName %></h3> 
+                                                            <div class="d-flex flex-column text-sm-right">
+                                                                <p class="mb-0">Date Order :<span><%= new Date(orders[i].orderDate).toLocaleString() %></span></p>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Add class 'active' to progress -->
+                                                        <div class="row d-flex justify-content-center">
+                                                            <div class="col-12">
+                                                                <ul id="progressbar" class="text-center">
+                                                                  <% if (orders[i].status === 1) { %>
+                                                                    <li class="active step0"></li>
+                                                                    <li class="step0"></li>
+                                                                    <li class="step0"></li>
+                                                                    <li class="step0"></li>
+                                                                <% } else if (orders[i].status === 2) { %>
+                                                                  <li class="active step0"></li>
+                                                                  <li class="active step0"></li>
+                                                                  <li class="step0"></li>
+                                                                  <li class="step0"></li>
+                                                                <% } else if (orders[i].status === 3) { %>
+                                                                  <li class="active step0"></li>
+                                                                  <li class="active step0"></li>
+                                                                  <li class="active step0"></li>
+                                                                  <li class="step0"></li>
+                                                                <% } else if (orders[i].status === 4) { %>
+                                                                  <li class="active step0"></li>
+                                                                  <li class="active step0"></li>
+                                                                  <li class="active step0"></li>
+                                                                  <li class="active step0"></li>
+                                                                <% } %>
+                                                                    
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row d-flex justify-content-center">
+                                                            <div class="icon-content">
+                                                                <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
+                                                                <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                                                                <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                                                                <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                                                            </div>
+                                                            <div class="icon-content">
+                                                                <div class="d">
+                                                                    <p class="font-weight-bold">Order<br>Processed</p>
+                                                                </div>
+                                                                <div class="d">
+                                                                    <p class="font-weight-bold">Order<br>Shipped</p>
+                                                                </div>
+                                                                <div class="d">
+                                                                        <p class="font-weight-bold">Order<br>En Route</p>
+                                                                </div>
+                                                                <div class="d">
+                                                                    <p class="font-weight-bold">Order<br>Arrived</p>
+                                                                </div>
+                                                            </div>     
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              </section>
+              <%sum+=(orders[i].productPrice * orders[i].productAmount)%>
+              <% } %> 
+              
+
+
+                <!-- Checkout -->
+          
+        </div>
+
+        <!-- Checkout -->
+            <div class="col-xl-4 col-lg-4 d-flex justify-content-center justify-content-lg-end">
+        <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px;">
+          <h6 class="mb-3">Summary</h6>
+      
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">Discount:</p>
+            <p class="mb-2 text-danger">- $00.00</p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">Shipping cost:</p>
+            <p class="mb-2">+ $00.00</p>
+          </div>
+          <div class="d-flex justify-content-between">
+              <p class="mb-2">Amount:</p>
+              <p class="mb-2 "></p>
+            </div>
+          <hr />
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">Total Amount :$<%=sum%></p>
+            <p class="mb-2 fw-bold"></p>
+          </div>
+
+          <div class="input-group mt-3 mb-4">
+            <input type="text" class="form-control border" name="" placeholder="Promo code" />
+            <button class="btn btn-light text-primary border">Apply</button>
+          </div>
+
+          <hr />
+        
+
+          <div class="row" id="favorite-products">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+      </form>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<%- include("parts/footer") %>

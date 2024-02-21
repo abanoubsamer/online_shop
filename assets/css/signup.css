@@ -1,0 +1,51 @@
+body {
+
+   
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  .container{
+    margin-top: 5%;
+    
+  }
+  .card{
+    background-color: #fff;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 100px;
+  }
+  .card-title{
+
+    text-align: center;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+  }
+  .form-control,.form-select{
+    border-radius: 20px;
+    border: 1px solid #c0c0c0;
+    outline: 0 !important;
+    box-sizing: border-box;
+    padding: 12px 15px;
+  }
+  .btn{
+    padding: 10px 15px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border-radius: 20px;
+  border: 0 !important;
+  outline: 0 !important;
+  color: white;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .userinfo{
+    display: flex;
+   justify-content: space-between;
+ 
+  }

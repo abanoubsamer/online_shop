@@ -1,0 +1,119 @@
+<div class="container">
+    <div class="container" style="margin-top:50px;">
+        <div class="row">
+            <% for(let i = 0; i < orders.length; i++) { %>
+            <div class="col-md-6">
+                <div class="card-sl">
+                    <div class="card-image">
+                        <img src="<%= orders[i].image %>"/>
+                    </div>
+                    <div class="card-heading">
+                        <h3><%= orders[i].productName %></h3> 
+                    </div>
+                    <div class="card-text">
+                        <span class="infouser"><h2>Information User</h2></span> 
+                        <h4>Name: <%= orders[i].name %></h4>
+                        <h4>Country: <%= orders[i].Country %></h4>
+                        <h4>City: <%= orders[i].City %></h4>
+                        <div class="Contact">
+                            <div class="Contactstype">
+                                <h4>Contacts Type:</h4>
+                                <% for(let j = 0; j < orders[i].Contacts.type.length; j++) { %>
+                                    <h4>[<%=j+1%>]<%= orders[i].Contacts.type[j] %></h4>
+                                <% } %>
+                            </div>
+                            <div class="Contactsvalue">
+                                <h4>Contacts Value:</h4>
+                                <% for(let j = 0; j < orders[i].Contacts.value.length; j++) { %>
+                                    <h4>[<%=j+1%>]<%= orders[i].Contacts.value[j] %></h4>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-text">
+                        <span class="infoamount"><h2>Information Amount</h2></span> 
+                        <h4>Price: <%= orders[i].productPrice %>$</h4>
+                        <h4>Amount: <%= orders[i].productAmount %></h4>
+                        <h4>Total Amount: <%= orders[i].productPrice * orders[i].productAmount %>$</h4>
+                    </div>
+                    <button type="button" class="d-grid" data-bs-toggle="modal" data-bs-target="#exampleModal<%= i %>">
+                        Tracing Order
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal<%= i %>" tabindex="-1" aria-labelledby="exampleModalLabel<%= i %>" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel<%= i %>">Tracing Form</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col col-12 col-md-12 col-lg-12 col-xl-12">
+                                                <div class="container px-1 px-md-4 py-5 mx-auto">
+                                                    <div class="card">
+                                                        <div class="row d-flex justify-content-between px-3 top">
+                                                            <div class="d-flex">
+                                                                <h5>ORDER ID <span class="text-primary font-weight-bold">#<%= orders[i].productsId %></span></h5>
+                                                            </div>
+                                                            <h3><%= orders[i].productName %></h3> 
+                                                            <div class="d-flex flex-column text-sm-right">
+                                                                <p class="mb-0">Date Order :<span><%= new Date(orders[i].orderDate).toLocaleString() %></span></p>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Add class 'active' to progress -->
+                                                        <div class="row d-flex justify-content-center">
+                                                            <div class="col-12">
+                                                                <ul id="progressbar" class="text-center">
+                                                                    <li class="active step0"></li>
+                                                                    <li class="active step0"></li>
+                                                                    <li class="step0"></li>
+                                                                    <li class="step0"></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row d-flex justify-content-center">
+                                                            <div class="icon-content">
+                                                                <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
+                                                                <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                                                                <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                                                                <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                                                            </div>
+                                                            <div class="icon-content">
+                                                                <div class="d">
+                                                                    <p class="font-weight-bold">Order<br>Processed</p>
+                                                                </div>
+                                                                <div class="d">
+                                                                    <p class="font-weight-bold">Order<br>Shipped</p>
+                                                                </div>
+                                                                <div class="d">
+                       	                                             <p class="font-weight-bold">Order<br>En Route</p>
+                                                                </div>
+                                                                <div class="d">
+                                                                    <p class="font-weight-bold">Order<br>Arrived</p>
+                                                                </div>
+                                                            </div>     
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            
+            <% } %> 
+        </div>  
+    </div>
+</div>
+

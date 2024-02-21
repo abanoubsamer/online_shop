@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary"data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/logo/store.png" alt="Bootstrap" width="40" height="40">
+      </a>
+      
+      
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+            </a>
+            <ul class="dropdown-menu">
+             
+              <%if(!isUser){%>
+                <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
+                <li><a class="dropdown-item" href="/login">Login</a></li>
+                
+                <%}else{%>
+      
+                  <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                  <li><a class="dropdown-item" href="/logout">logout</a></li>
+                  <%}%>
+ 
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link <%= pagetitale === "Home" ? "active" : "" %>" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+
+            <a class="nav-link <%= pagetitale === "Cart" ? "active" : "" %>" href="/card">Card</a>
+          </li>
+          <%if(isUser){%>
+            <li class="nav-item">
+              <a class="nav-link <%= pagetitale === "Orders" ? "active" : "" %>"href="/oreder">Oreders</a>
+            </li>
+            <%}%>
+
+            <%if(isAdmin){%>
+              <li class="nav-item">
+              <a class="nav-link <%= pagetitale === "Add Product" ? "active" : "" %>" href="/admin/add">Add Product</a>
+              </li> 
+              <li class="nav-item">
+              <a class="nav-link <%= pagetitale === "Manage Product" ? "active" : "" %>" href="/admin/manage">M_Oreders</a>
+              </li>
+             <%}%>
+
+     
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>     
+      <%if(image){%>
+        <a href="/profile">
+          <img src="<%= image %>" width="40" height="40" style="border-radius: 20px; margin: 20%;">
+        </a>
+        <%}else if(isUser){%>
+          <a href="/profile">
+          <img src="https://img.icons8.com/bubbles/100/000000/user.png"width="40" height="40" class="img-radius" alt="User-Profile-Image"style="border-radius: 20px; margin:20% ">
+          </a>
+          <%}%> 
+    </div>
+    
+   
+   
+  </nav>

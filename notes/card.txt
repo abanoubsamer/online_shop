@@ -1,0 +1,44 @@
+ <%}else{%>
+
+
+
+    <div class="container">
+      <div class="row">
+    <%for(let Product of produts){ %>
+      <div class="col col-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="card" style="width: 18rem; transition:transform 0.1; bottom: -20px;">
+             <a href="/product/<%=Product.id%>" style=" text-decoration: none ; color: black;">
+              <img src= "<%=Product.image %>" class="card-img-top" alt="...">
+            </a>
+              <div class="card-body">  
+                <h5 class="card-title"><%=Product.name%></h5>
+                <p class="card-text"><h6>Discrption:</h6><%=Product.discrption%></p>
+                <p class="card-text"><h6>Stock:</h6> <%=Product.stock%></p>
+                <p class="card-text"><h6>Price: <%=Product.price%>$</p></h6>
+            
+                <form action="/card" method="post">
+                  <input name="amount" type="number" placeholder="Number" required class="input">
+                  <% if (typeof errors !== 'undefined' && errors.number) { %>
+                    <p class="text-danger"><%= errors.number %></p>
+                  <% } %>
+                  <input type="hidden" name="name" value="<%=Product.name%>">
+                  <input type="hidden" name="price" value="<%=Product.price%>">
+                  <input type="hidden" name="productId" value="<%=Product.id%>">
+                  <input type="hidden" name="image" value="<%=Product.image%>">
+                  <input type="hidden" name="redirectTo" value="/">
+                
+                  <input type="submit" value="Add List"  class="btn btn-primary" style="border-radius: 15px;"></input>
+                  
+                </form>
+                 
+              </div>
+            </div>
+            
+      </div>
+  
+  <%}%>
+      
+      </div>
+  </div>
+
+   <%}%> 

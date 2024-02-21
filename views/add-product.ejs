@@ -1,0 +1,234 @@
+<%- include("parts/header") %>
+
+<style>
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    height: 40px;
+    outline:  none;
+    border-radius: 4px;
+    padding: 5px;
+    color: #000;
+    border-radius: 5px;
+}
+
+</style>
+<body>
+
+
+
+
+<%- include("parts/nav") %>
+  <form action="/admin/add" method="post" enctype="multipart/form-data">
+    <section class="bg-light py-5">
+      <div class="container"> 
+              <div class="row">
+                  <div class="col-xl-8 col-lg-8 mb-4">
+                  <div class="card mb-4 border shadow-0">
+              <div class="p-4 d-flex justify-content-between">
+                  <div class="card shadow-0 border">
+                      <div class="p-4">
+                        <h5 class="card-title mb-3"><h1>Add a Product</h1></h5>
+                        <div class="row">
+                          <div class="col-6 mb-3">
+                            <p class="mb-0">Product Name</p>
+                            <div class="form-outline">
+                              <input name="name"type="text" id="typeText" placeholder="Type here" class="form-control"  required/>
+                          </div>
+                          </div>
+            
+                          <div class="col-6">
+                            <p class="mb-0">Product Category</p>
+                            <div class="form-outline">
+                              <div class="form-group">
+                                  <select  class="form-control address-select" name="category" required>
+                                      <option value="">Please Select</option>
+                                      <option value="Phone">Phone</option>
+                                      <option value="t.v">T.v</option>
+                                      <option value="Clothes">Clothes</option>
+                                      <option value="Laptop">Laptop</option>
+                                  </select>
+                              </div>
+                    
+                            </div>
+                          </div>
+                          <div class="col-6 mb-3">
+                              <p class="mb-0">Price</p>
+                              <div class="form-outline">
+                                <input name="price" type="number" id="typeEmail" placeholder="$" class="form-control" required/>
+                    
+                              </div>
+                            </div>
+                          
+            
+                          <div class="col-6 mb-3">
+                            <p class="mb-0">Phone</p>
+                            <div class="form-outline">
+                              <input name='phone'type="text" id="typePhone" placeholder="+48" class="form-control" required />
+                    
+                            </div>
+                          </div>
+            
+                          <div class="col-6 mb-3">
+                            <p class="mb-0">Email</p>
+                            <div class="form-outline">
+                              <input name="email" type="email" id="typeEmail" placeholder="example@gmail.com" class="form-control" required />
+                             
+                            </div>
+                          </div>
+                          <div class="col-6 mb-3">
+                              <p class="mb-0">Product Images</p>
+                              <div class="form-outline">
+                                  <input type="file" id="product-images" name="product-images[]" accept="image/*" multiple required> 
+                              </div>
+                            </div>
+                          
+                            <div class="col-6 mb-3">
+                              <p class="mb-0">stock</p>
+                              <div class="form-outline">
+                                <input name="stock" type="number" id="typeEmail" placeholder="stock" class="form-control" required />
+                              </div>
+                            </div>
+
+
+                        </div>
+                        
+            
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                          <label class="form-check-label" for="flexCheckDefault">Keep me up to date on news</label>
+                        </div>
+            
+                        <hr class="my-4" />
+            
+                        <h5 class="card-title mb-3">Product info</h5>
+                        <div class="mb-3">
+                          <p class="mb-0">Additional Description</p>
+                          <div class="form-outline">
+                            <textarea name="discrption" class="form-control" id="textAreaExample1" rows="3"></textarea>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <p class="mb-0">Comments</p>
+                          <div class="form-outline">
+                            <textarea class="form-control" id="textAreaExample1" rows="1"></textarea>
+                          </div>
+                        </div>
+  
+                        <div class="row mb-3">
+                          <div class="col-lg-4 mb-3">
+                            <!-- Default checked radio -->
+                            <div class="form-check h-100 border rounded-3">
+                              <div class="p-3">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked />
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                  Brand New <br />
+                                  <small class="text-muted">1-2 Year </small>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 mb-3">
+                            <!-- Default radio -->
+                            <div class="form-check h-100 border rounded-3">
+                              <div class="p-3">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                  Second Hand <br />
+                                  <small class="text-muted">3-5 Year </small>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 mb-3">
+                            <!-- Default radio -->
+                            <div class="form-check h-100 border rounded-3">
+                              <div class="p-3">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
+                                <label class="form-check-label" for="flexRadioDefault3">
+                                  Refurbished <br />
+                                  <small class="text-muted"></small>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="row">
+                          <div class="col-sm-8 mb-3">
+                            <p class="mb-0">Address</p>
+                            <div class="form-outline">
+                              <input name="Address" type="text" id="typeText" placeholder="Type here" class="form-control" />
+                            </div>
+                          </div>
+            
+                          <div class="col-sm-4 mb-3">
+                            <p class="mb-0">City</p>
+                            <div class="form-outline">
+                              <input name="City" type="text" id="typeText" placeholder="Type here" class="form-control" />
+                            </div>
+                          </div>
+            
+                          
+            
+                          <div class="col-sm-4 col-6 mb-3">
+                            <p class="mb-0">Postal code</p>
+                            <div class="form-outline">
+                              <input type="text" id="typeText" class="form-control" />
+                            </div>
+                          </div>
+            
+                          <div class="col-sm-4 col-6 mb-3">
+                            <p class="mb-0">Country</p>
+                            <div class="form-outline">
+                              <input name="BuildingNumber" type="text" id="typeText" placeholder="Type here" class="form-control" />
+              
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="form-check mb-3">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                          <label class="form-check-label" for="flexCheckDefault1">Save this address</label>
+                        </div>
+            
+                        
+            
+                        <div class="float-end">
+                          <button type="submit" class="btn btn-outline-success">Submit</button>
+                   
+                        </div>
+  
+               
+  
+                      </div>
+                    </div>
+                    <!-- Checkout -->
+                  </div>        
+              </div>
+            </div>
+    
+            <!-- Checkout -->
+                
+        </div>
+      </div>
+    </section>    
+  </form>
+  
+                           
+<%- include("parts/footer")%>
+
+<script >
+
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('addedToProduct') && urlParams.get('addedToProduct') === 'true') {
+    alert('Product added to Product');
+}
+</script>

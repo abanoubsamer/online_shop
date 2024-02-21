@@ -1,0 +1,233 @@
+.card {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  max-height: 100%;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.08),
+    -4px -4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1),
+      -4px -4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  
+  .card-image-container {
+    width: 100%;
+    max-height: 50%;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-title {
+    font-size: 17px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    color: #1797b8;
+    cursor: default;
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 1;
+
+  }
+  
+  .card-des {
+   
+    display: flex;
+    justify-content: space-between;
+   margin-bottom: auto;
+    font-size: 13px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+            "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color: #1797b8;
+    cursor: default;
+  }
+  .card-date {    
+    position: absolute; /* Set position to absolute */
+    bottom: 0; /* Align to the bottom of the card */
+    left: 0; /* Optionally adjust left position if needed */
+    width: 100%;
+    font-size: 14px; /* Adjust the font size as needed */
+    color: #333; /* Adjust the color as needed */
+    bottom: 0;
+    text-align:center; /* Adjust the text alignment as needed */
+    /* Add any other styling properties here */
+}
+#total 
+{
+  margin-bottom: auto;
+  background: #198754;
+  color: #000;
+   width: auto;
+  margin-left: 14%;
+  padding: 10px ;
+  display: flex;
+
+  border-radius: 15px;
+}
+.submit{
+ 
+    width: 100%;
+    display: flex;
+   justify-content: space-between;
+   margin-bottom: 15%;
+}
+.submit input{
+  border-radius: 15px;
+  width: 45%;  
+
+
+}
+.submit input:hover{
+    color: #333;
+}
+
+
+
+
+.button {
+  border-radius: 15px;
+  position: relative;
+  width: 100%;
+  height: 95%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  border: 1px solid #cc0000;
+  background-color: #e50000;
+  overflow: hidden;
+}
+
+.button, .button__icon {
+  transition: all 0.3s;
+}
+
+
+.button .button__text {
+  transform: translateX(35px);
+  color: #fff;
+  font-weight: 600;
+}
+
+.button .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #cc0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button .svg {
+  width: 20px;
+}
+
+.button:hover {
+  background: #cc0000;
+}
+
+.button:hover .button__text {
+  color: transparent;
+}
+
+.button:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.button:active .button__icon {
+  background-color: #b20000;
+}
+
+.button:active {
+  border: 1px solid #b20000;
+}
+
+
+
+/*
+save button
+*/
+.bookmarkBtn {
+ width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  border: 1px solid ;
+  border-color: #198754;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+}
+
+.IconContainer {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(to bottom, #198754, rgb(168, 148, 184));
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: 0.3s;
+}
+
+.icon {
+  border-radius: 1px;
+ 
+}
+
+.text {
+  height: 100%;
+  width: 60px;
+  display: flex;
+  margin-bottom: auto;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  z-index: 1;
+  transition-duration: 0.3s;
+  font-size: 1.04em;
+}
+
+.bookmarkBtn:hover .IconContainer {
+  width: 90px;
+  transition-duration: 0.3s;
+  
+}
+
+
+.bookmarkBtn:hover .text {
+  transform: translate(10px);
+  width: 0;
+  font-size: 0;
+  transition-duration: 0.3s;
+}
+
+.bookmarkBtn:active {
+  transform: scale(0.95);
+  transition-duration: 0.3s;
+}
