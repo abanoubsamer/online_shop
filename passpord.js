@@ -14,7 +14,7 @@ passport.deserializeUser((user, done) => {
 passport.use(new GoogleStrategy({
     clientID: process.env.Client_ID,
     clientSecret: process.env.Client_secret,
-    callbackURL: "https://fair-blue-sheep-wear.cyclic.app/auth/google/callback",
+    callbackURL:  process.env.callbackURL,
     passReqToCallback: true,
 }, (req, accessToken, refreshToken, profile, done) => {
     return done(null, profile);
